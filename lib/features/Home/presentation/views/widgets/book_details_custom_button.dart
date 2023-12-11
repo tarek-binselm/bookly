@@ -1,5 +1,6 @@
-import 'package:bookly_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../core/widgets/custom_button.dart';
 
 class BookDetailsCustomButton extends StatelessWidget {
   const BookDetailsCustomButton({super.key});

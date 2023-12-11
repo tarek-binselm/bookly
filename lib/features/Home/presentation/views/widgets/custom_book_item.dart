@@ -1,5 +1,6 @@
-import 'package:bookly_app/core/utils/assests.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../core/utils/assests.dart';
 
 class CustomBookItem extends StatelessWidget {
   const CustomBookItem({super.key});

@@ -1,7 +1,8 @@
-import 'package:bookly_app/features/Home/presentation/views/widgets/book_details_custom_app_bar.dart';
-import 'package:bookly_app/features/Home/presentation/views/widgets/books_details_section.dart';
-import 'package:bookly_app/features/Home/presentation/views/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
+
+import 'book_details_custom_app_bar.dart';
+import 'books_details_section.dart';
+import 'similar_books_section.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});

@@ -1,10 +1,11 @@
-import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/assests.dart';
-import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/Home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../../constants.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/assests.dart';
+import '../../../../../core/utils/styles.dart';
+import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key});
