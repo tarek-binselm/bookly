@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -5,6 +6,8 @@ import 'constants.dart';
 import 'core/utils/app_router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized;
+  setupServiceLocator();
   runApp(const BooklyApp());
 }
 
@@ -15,7 +18,6 @@ class BooklyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter.router,
-      
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
