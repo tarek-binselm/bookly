@@ -1,3 +1,9 @@
+import 'package:bookly_app/core/utils/service_locator.dart';
+import 'package:bookly_app/features/Home/data/repos/home_repo_impl.dart';
+import 'package:bookly_app/features/Home/presentation/cubits/featured_books_cubit/featured_books_cubit.dart';
+import 'package:bookly_app/features/Home/presentation/cubits/newest_books_cubit/newest_books_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../features/Home/presentation/views/book_details_view.dart';
 import '../../features/Home/presentation/views/home_view.dart';
 import '../../features/Search/presentation/views/search_view.dart';
@@ -17,7 +23,18 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) => MultiBlocProvider(providers: [
+          BlocProvider(
+            create: (context) => FeaturedBooksCubit(
+              getIt.get<HomeRepoImpl>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => NewestBooksCubit(
+              getIt.get<HomeRepoImpl>(),
+            ),
+          ),
+        ], child: const HomeView()),
       ),
       GoRoute(
         path: kBookDetailsView,
