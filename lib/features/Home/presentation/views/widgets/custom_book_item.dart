@@ -21,14 +21,3 @@ class CustomBookItem extends StatelessWidget {
     );
   }
 }
-
-//  Container(
-//         decoration: BoxDecoration(
-//           color: Colors.red,
-//           borderRadius: BorderRadius.circular(14),
-//           image: DecorationImage(
-//             fit: BoxFit.fill,
-//             image: NetworkImage(imageUrl),
-//           )
-//    ),
-//       ),
