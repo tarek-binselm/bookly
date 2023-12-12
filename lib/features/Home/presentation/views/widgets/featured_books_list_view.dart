@@ -11,29 +11,32 @@ class FeaturedBooksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<FeaturedBooksCubit, FeaturedBooksState>(
-      listener: (context, state) {
-        if (state is FeaturedBooksLoadingState) {
-          const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state is FeaturedBooksFailureState) {
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+      builder: (context, state) {
+        if (state is FeaturedBooksFailureState) {
           customToast(msg: state.errMessage);
         }
-      },
-      builder: (context, state) {
-        return SizedBox(
-          height: MediaQuery.of(context).size.height * .3,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8),
-                child: CustomBookItem(),
-              );
-            },
-          ),
-        );
+        return state is FeaturedBooksLoadingState
+            ? const Center(child: CircularProgressIndicator())
+            : state is FeaturedBooksSuccessState
+                ? SizedBox(
+                    height: MediaQuery.of(context).size.height * .3,
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.books.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: CustomBookItem(
+                            imageUrl: state
+                                .books[index].volumeInfo.imageLinks.thumbnail,
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                : Text((state as FeaturedBooksFailureState).errMessage);
       },
     );
   }

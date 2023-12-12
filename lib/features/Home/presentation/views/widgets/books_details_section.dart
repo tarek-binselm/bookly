@@ -1,4 +1,3 @@
-
 import '../../../../../core/utils/styles.dart';
 import 'book_details_custom_button.dart';
 import 'book_rating.dart';
@@ -14,7 +13,8 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width * .5,
-          child: const CustomBookItem(),
+          child: const CustomBookItem(
+              imageUrl: 'https://source.unsplash.com/user/c_v_r/1900x800'),
         ),
         const SizedBox(
           height: 43,

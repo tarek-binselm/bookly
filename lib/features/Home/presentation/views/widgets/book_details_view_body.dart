@@ -20,7 +20,6 @@ class BookDetailsViewBody extends StatelessWidget {
                 BookDetailsCustomAppBar(),
                 BookDetailsSection(),
                 Expanded(
-                  // because i need this section remain at the bottom of the screen
                   child: SizedBox(
                     height: 50,
                   ),

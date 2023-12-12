@@ -26,7 +26,7 @@ abstract class AppRouter {
         builder: (context, state) => MultiBlocProvider(providers: [
           BlocProvider(
             create: (context) => FeaturedBooksCubit(
-              getIt.get<HomeRepoImpl>(),
+              getIt.get<HomeRepoImpl>()
             )..fetchFeaturedBooks(),
           ),
           BlocProvider(

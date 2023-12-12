@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../../../../core/errors/failures.dart';
 import '../../../../core/utils/api_service.dart';
 import '../models/book_model/book_model.dart';
@@ -33,11 +35,10 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async{
-   try {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
       var data = await apiService.get(
-          endPoint:
-              'volumes?q=subject:programming&Filtering=free-ebooks');
+          endPoint: 'volumes?q=subject:programming&Filtering=free-ebooks');
 
       List<BookModel> books = [];
 
@@ -49,8 +50,10 @@ class HomeRepoImpl implements HomeRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       }
-
-      return left(ServerFailure(e.toString()));
+      if (kDebugMode) {
+        return left(ServerFailure(e.toString()));
+      }
+      return left(ServerFailure('unexpected error'));
     }
   }
 }
