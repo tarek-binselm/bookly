@@ -13,9 +13,10 @@ class CustomBookItem extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
+          fit: BoxFit.fill,
           imageUrl: imageUrl,
-            errorWidget: (context, url, error) =>const  Icon(Icons.error),
-          ),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }
