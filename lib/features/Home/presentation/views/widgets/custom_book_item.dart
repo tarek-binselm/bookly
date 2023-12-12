@@ -14,10 +14,20 @@ class CustomBookItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
           imageUrl: imageUrl,
-          fit: BoxFit.fill,
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-        ),
+            errorWidget: (context, url, error) =>const  Icon(Icons.error),
+          ),
       ),
     );
   }
 }
+
+//  Container(
+//         decoration: BoxDecoration(
+//           color: Colors.red,
+//           borderRadius: BorderRadius.circular(14),
+//           image: DecorationImage(
+//             fit: BoxFit.fill,
+//             image: NetworkImage(imageUrl),
+//           )
+//    ),
+//       ),
